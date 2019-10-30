@@ -19,6 +19,10 @@ const app=express();
 app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}));
 
+//lineas de handlebars
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
 
 
 //-----------Vamos a usar Mongo-----//

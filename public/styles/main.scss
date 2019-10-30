@@ -71,7 +71,7 @@ body {
     background: none;
 }
 
-.header__btn {
+.header__resonsive {
     background: none;
     border: none;
     display: none;
@@ -135,7 +135,7 @@ body {
         transform: translate(0%, 0%);
         background: rgba(255, 255, 255, 0.9);
     }
-    .header__btn {
+    .header__responsive {
         display: block;
     }
 }

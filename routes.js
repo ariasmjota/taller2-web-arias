@@ -15,17 +15,33 @@ function createRoutes (app, db) {
     //Mongo: buscar documentos (Paso 3)
     var products = db.collection('products');
     products.find()
-	        .toArray(function(err, docs) {
+	        .toArray(function(err, allProducts) {
+              
         var contexto = {
-            productsList: docs,
-           
+            productsList: allProducts,
         };
         response.render('store',contexto);
     });
 
+    app.get('/store/:name',(request, response) =>{
+        console.log('Entro a un producto');
+
+        var name = request.params.name;
+
+        products.find({name: name})
+	        .toArray(function(err, OneProduct) {
+               
+        var contexto = {
+            individual: OneProduct[0],
+           
+        };
+        response.render('individual',contexto);
+      
+      
+    });
+});
 });
 
 }
 
 module.exports = createRoutes;
-

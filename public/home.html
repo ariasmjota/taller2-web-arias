@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <!-- Link del css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 
 <body>
@@ -25,16 +25,24 @@
 
         <nav class="header__list listnav">
             <a href="#banner" class="listnav__a">NEW RELEASES</a>
-            <a href="#advertising" class="listnav__a">SHOP</a>
+            <a href="/store"class="listnav__a">SHOP</a>
             <a href="#presentation" class="listnav__a">KNOW</a>
             <a href="#characteristic" class="listnav__a">FOR YOU</a>
             <a href="#gallery" class="listnav__a">GALLERY</a>
         </nav>
-
+        
         <button class="header__btn">
-            <img src="images/menu.png" alt="">
+            <img src="images/tienda.png" alt="">
         </button>
 
+        <button class="header__btn">
+            <img src="images/buscar.png" alt="">
+        </button>
+
+        <!-- Responsive -->
+        <button class="header__responsive">
+            <img src="images/menu.png" alt="">
+        </button>
     </header>
     <!-- Cierro header -->
 
@@ -145,11 +153,14 @@
                     <p>4 colors</p>
                 </div>
             </section>
-            <a class="advertising__store">Go to shop!</a>
+           
         </article>
 
-
+        <!-- Enlace para ir a la tienda -->
+       
     </section>
+
+    <a class="store__buttom" href="/store" class="advertising__store">Go to shop!</a>
     <!-- Cierra seccion publicitaria -->
     <!-- Presentacion del producto -->
     <section class="presentation" id="presentation">

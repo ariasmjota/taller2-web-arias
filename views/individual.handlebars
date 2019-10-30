@@ -1,11 +1,6 @@
-<section class="products__store">
 
 
-    {{#each productsList}}
-
-    <a href="/store/{{this.name}}"class="product">
-        <!-- Imagen del producto -->
-        <img class="individual__image" src="/images/{{this.images.[0]}}">
+<img class="individual__image" src="/images/{{this.images.[0]}}">
         <!-- Detalles del producto -->
         <section class="individual__top">
             <h1 class="individual__header"> {{this.name}}</h1>
@@ -19,8 +14,3 @@
         <button class="product__buy">
             <img src="/images/tienda.png" alt="">
         </button>
-    </a>
-
-
-    {{/each}}
-</section>
