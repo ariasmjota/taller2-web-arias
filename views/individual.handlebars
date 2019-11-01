@@ -1,16 +1,40 @@
+  <!-- Imagen del producto y Galeria-->
+  <section class="product__individual">
 
+  {{#each productsList}}
 
-<img class="individual__image" src="/images/{{this.images.[0]}}">
-        <!-- Detalles del producto -->
-        <section class="individual__top">
-            <h1 class="individual__header"> {{this.name}}</h1>
-            <h2 class="individual__header"> {{this.category}}</h2>
-            <p class="individual__header">{{this.colors}}</p>
-            <h1 class="individual__header">{{this.price}}</h1>
+   <h1 class="product__header"> {{this.name}}</h1>
+
+        <section class="product__right">
+
+            <img class="product__image" src="/images/{{this.images.[0]}}">
+
+            <article class="gallery__selector">
+
+                <div class="gallery__mini"></div>
+                <div class="gallery__mini"></div>
+                <div class="gallery__mini"></div>
+                <div class="gallery__mini"></div>
+                {{!-- <div class="gallery__mini" style=" background-image: url(/imagenes/{{imagenes.[2]}})"></div> --}}
+            </article>
+
         </section>
-        <button class="product__Like">
-            <img src="/images/like.png" alt="">
-        </button>
-        <button class="product__buy">
-            <img src="/images/tienda.png" alt="">
-        </button>
+        <!-- Detalles del producto -->
+        
+        <section class="product__left left">
+            <article class="left__top top">
+            <h1 class="top__individual">{{this.price}}</h1>
+            <p class="top__individual">{{this.colors}}</p>
+            </article>
+            <article class="left__info info">
+            <p class="info__individual">{{this.characteristic}} </p>
+            <a class="info__individual">Read More...</a>
+            <p class="info__individual">{{this.characOne}} </p>
+            <p class="info__individual">{{this.characTwo}} </p>
+            <p class="info__individual">{{this.characThree}} </p>
+            </article>
+           
+        </section>
+        
+    {{/each}}
+    </section>

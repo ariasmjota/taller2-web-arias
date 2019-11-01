@@ -3,22 +3,31 @@
 
     {{#each productsList}}
 
-    <a href="/store/{{this.name}}"class="product">
-        <!-- Imagen del producto -->
-        <img class="individual__image" src="/images/{{this.images.[0]}}">
+    <a href="/store/{{this.name}}" class="product">
         <!-- Detalles del producto -->
-        <section class="individual__top">
-            <h1 class="individual__header"> {{this.name}}</h1>
-            <h2 class="individual__header"> {{this.category}}</h2>
-            <p class="individual__header">{{this.colors}}</p>
-            <h1 class="individual__header">{{this.price}}</h1>
+
+        {{!-- Imagen del producto --}}
+        <img class="product__image" src="/images/{{this.images.[0]}}">
+
+        {{!-- Informacion del producto  --}}
+        <section class="product__top top">
+            <article class="top__rigth">
+                <h1 class="product__header"> {{this.name}}</h1>
+                <h2 class="product__header"> {{this.category}}</h2>
+                <p class="product__header">{{this.colors}}</p>
+            </article>
+            <article class="top__left">
+                <h1 class="product__header">{{this.price}}</h1>
+            </article>
         </section>
-        <button class="product__Like">
-            <img src="/images/like.png" alt="">
-        </button>
-        <button class="product__buy">
-            <img src="/images/tienda.png" alt="">
-        </button>
+        <section class="product__bottom">
+            <button class="product__Like">
+                <img src="/images/like.png" alt="">
+            </button>
+            <button class="product__buy">
+                <img src="/images/tienda.png" alt="">
+            </button>
+        </section>
     </a>
 
 
