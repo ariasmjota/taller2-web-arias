@@ -31,7 +31,7 @@ function createRoutes (app, db) {
 	        .toArray(function(err, OneProduct) {
                
         var contexto = {
-            productsList: OneProduct[0],
+            individual: OneProduct[0],
            
         };
         response.render('individual',contexto);

@@ -1,13 +1,12 @@
   <!-- Imagen del producto y Galeria-->
+   
   <section class="product__individual">
-
-  {{#each productsList}}
-
-   <h1 class="product__header"> {{this.name}}</h1>
+     
+   <h1 class="product__header"> {{individual.name}}</h1>
 
         <section class="product__right">
 
-            <img class="product__image" src="/images/{{this.images.[0]}}">
+            <img class="product__image" src="/images/{{individual.images.[0]}}">
 
             <article class="gallery__selector">
 
@@ -23,18 +22,18 @@
         
         <section class="product__left left">
             <article class="left__top top">
-            <h1 class="top__individual">{{this.price}}</h1>
-            <p class="top__individual">{{this.colors}}</p>
+            <h1 class="top__individual">{{individual.price}}</h1>
+            <p class="top__individual">{{individual.colors}}</p>
             </article>
             <article class="left__info info">
-            <p class="info__individual">{{this.characteristic}} </p>
+            <p class="info__individual">{{individual.characteristic}} </p>
             <a class="info__individual">Read More...</a>
-            <p class="info__individual">{{this.characOne}} </p>
-            <p class="info__individual">{{this.characTwo}} </p>
-            <p class="info__individual">{{this.characThree}} </p>
+            <p class="info__individual">{{individual.characOne}} </p>
+            <p class="info__individual">{{individual.characTwo}} </p>
+            <p class="info__individual">{{individual.characThree}} </p>
             </article>
            
         </section>
-        
-    {{/each}}
+       
     </section>
+  
