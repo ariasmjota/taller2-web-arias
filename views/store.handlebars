@@ -1,4 +1,4 @@
-<section class="products__store">
+<section class="store">
 
 
     {{#each productsList}}
@@ -11,7 +11,7 @@
 
         {{!-- Informacion del producto  --}}
         <section class="product__top top">
-            <article class="top__rigth">
+            <article class="top__right">
                 <h1 class="product__header"> {{this.name}}</h1>
                 <h2 class="product__header"> {{this.category}}</h2>
                 <p class="product__header">{{this.colors}}</p>
@@ -19,14 +19,6 @@
             <article class="top__left">
                 <h1 class="product__header">{{this.price}}</h1>
             </article>
-        </section>
-        <section class="product__bottom">
-            <button class="product__Like">
-                <img src="/images/like.png" alt="">
-            </button>
-            <button class="product__buy">
-                <img src="/images/tienda.png" alt="">
-            </button>
         </section>
     </a>
 
