@@ -1,14 +1,18 @@
   <!-- Imagen del producto y Galeria-->
    
-  <section class="product__individual">
+  <section class="indivi">
      
-   <h1 class="product__header"> {{individual.name}}</h1>
+   <h1 class="indivi__header"> {{individual.name}}</h1>
 
-        <section class="product__right">
+     <section class="indivi__container">
+        <section class="indivi__right">
+            
+            <div class="indivi__image">
+                 <img src="/images/{{individual.images.[0]}}"> 
+            </div>
 
-            <img class="product__image" src="/images/{{individual.images.[0]}}">
 
-            <article class="gallery__selector">
+            <article class="indivi__gallery">
 
                 <div class="gallery__mini">
                  <img src="/images/{{individual.images.[1]}}">
@@ -35,19 +39,22 @@
         
         <section class="product__left left">
             <article class="left__top top">
-            <h1 class="top__individual">{{individual.price}}</h1>
-            <p class="top__individual">{{individual.colors}}</p>
+            <h1 class="top__indivi">{{individual.price}}</h1>
+            <p class="top__indivi">{{individual.colors}}</p>
             </article>
             <article class="left__info info">
-            <p class="info__individual">{{individual.characteristic}} </p>
-            <a class="info__individual">Read More...</a>
-            <p class="info__individual">{{individual.characOne}} </p>
-            <p class="info__individual">{{individual.characTwo}} </p>
-            <p class="info__individual">{{individual.characThree}} </p>
+            <p class="info__indivi">{{individual.characteristic}} </p>
+            <a class="info__indivi">Read More...</a>
+            <p class="info__indivi">{{individual.characOne}} </p>
+            <p class="info__indivi">{{individual.characTwo}} </p>
+            <p class="info__indivi">{{individual.characThree}} </p>
             </article>
            
         </section>
+
+        </section>
+
+        <button class="buy__btn">ADD TO BAG  <i data-feather="shopping-bag"></i> </button>
          {{!-- Cargo el sricp que servira para esta plantilla --}}
-    <script src="scrips/javaProduct.js"></script>
+   
     </section>
-  

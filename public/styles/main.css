@@ -230,7 +230,7 @@ body {
 .banner__bottom {
   font-family: "Montserrat", sans-serif;
   font-size: 200%;
-  color: red;
+  color: #eb5866;
   margin: 5% 0;
 }
 
@@ -310,7 +310,7 @@ body {
   font-size: 250%;
   font-style: normal;
   font-weight: bold;
-  color: aquamarine;
+  color: #43CDEC;
   position: absolute;
   text-align: end;
   margin-bottom: 5%;
@@ -402,7 +402,7 @@ body {
 .left__header {
   font-family: "Montserrat", sans-serif;
   font-size: 13pt;
-  color: red;
+  color: #eb5866;
   padding: 2%;
   margin: 0;
 }
@@ -495,7 +495,7 @@ body {
 }
 
 .presentation__top h2 {
-  font-family: 'Montserrat';
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-size: 300%;
   text-align: center;
@@ -647,7 +647,7 @@ body {
 }
 
 .characteristic__container h2 p {
-  color: aquamarine;
+  color: #43CDEC;
   text-align: justify;
   margin: 10pt 0;
 }
@@ -758,7 +758,7 @@ body {
   width: 0.9em;
   margin: 0 0.5em;
   border-radius: 50%;
-  background-color: aquamarine;
+  background-color: #43CDEC;
   display: inline-block;
   -webkit-transition: background-color 0.6s ease;
   transition: background-color 0.6s ease;
@@ -955,7 +955,7 @@ body {
 .product__header h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 13pt;
-  color: red;
+  color: #eb5866;
   padding: 2%;
   margin: 0;
 }
@@ -966,5 +966,86 @@ body {
 
 .product__header p {
   color: gray;
+}
+
+.indivi {
+  width: 100%;
+}
+
+.indivi__header {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 300%;
+  text-align: center;
+  color: #FF302A;
+  margin-top: 15px;
+}
+
+.indivi__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.indivi__right {
+  width: 100%;
+  height: auto;
+  background: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  padding: 0 20px;
+  border-radius: 23px;
+  margin: 2%;
+  text-decoration: none;
+}
+
+.indivi .indivi__image {
+  overflow: hidden;
+  margin: 5%;
+  width: 100%;
+}
+
+.indivi .indivi__image img {
+  display: block;
+  width: 100%;
+  margin: -30% 0;
+}
+
+.indivi__gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background: red;
+}
+
+.indivi .gallery__mini {
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+}
+
+.indivi .gallery__mini img {
+  display: block;
+  width: 100%;
+  margin: -30% 0;
+}
+
+.indivi__left {
+  width: 50%;
 }
 /*# sourceMappingURL=main.css.map */

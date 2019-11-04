@@ -1,3 +1,4 @@
+
 // todas las funciones que interactuen con la base de datos van aquí
 const assert = require('assert');
 
@@ -35,8 +36,13 @@ function createRoutes(app, db) {
                     individual: OneProduct[0],
 
                 };
-                response.render('individual', contexto);
 
+                if(contexto == null){
+                    response.send('Page not found: '+req.params.pestana);
+                }else{
+                    response.render('individual', contexto);
+
+                }
 
             });
     });
@@ -59,12 +65,54 @@ function createRoutes(app, db) {
 
 
     //Ruta al carrito
-    app.get('/carrito', function (req, res) {
+    
+    app.get('/shopping', function (request, response) {
         var contexto = {
 
         };
-        res.render('carrito', contexto);
+        response.render('cart', contexto);
     });
+    //Ruta al carrito
+    app.get('/pay', function(request, response) {
+    
+        var contexto = {
+        
+        };
+        response.render('pay',contexto);
+    });
+
+//Ruta al checkout
+app.post('/checkout', function(request, response) {
+    
+    var order = {
+       correo:request.body.correo,
+       telefono:request.body.telefono,
+       nombre:request.body.nombre,
+       apellido:request.body.apellido,
+       direccion:request.body.direccion,
+       pais:request.body.pais,
+       estado:request.body.estado,
+       ciudad:request.body.ciudad,
+       zip:request.body.zip,
+       tarjeta:request.body.tarjeta,
+       fecha:request.body.fecha,
+       mes:request.body.mes,
+       cvv:request.body.cvv,
+       nombre__tarjeta:request.body.nombre__tarjeta,
+       //products:JSON.parse(request.body.products),
+       total:request.body.total
+       
+    };
+
+    var collection =db.collection('orders');
+    collection.insertOne(order,function(err){
+        assert.equal(err,null);
+        console.log("Pedido Guardado");
+
+    });
+    response.redirect('/store');
+});
+
 
 }
 

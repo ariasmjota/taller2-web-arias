@@ -200,7 +200,7 @@ body {
     &__bottom {
         font-family: $tipo-titulos;
         font-size: 200%;
-        color: red;
+        color: $color-red;
         margin: 5% 0;
     }
 }
@@ -271,7 +271,7 @@ body {
     font-size: 250%;
     font-style: normal;
     font-weight: bold;
-    color: aquamarine;
+    color: $color-aquamarine;
     position: absolute;
     text-align: end;
     margin-bottom: 5%;
@@ -341,7 +341,7 @@ body {
     &__header {
         font-family: $tipo-titulos;
         font-size: 13pt;
-        color: red;
+        color: $color-red;
         padding: 2%;
         margin: 0;
     }
@@ -410,7 +410,7 @@ body {
         
 
             & h2 {
-                font-family: 'Montserrat';
+                font-family: $tipo-titulos;
                 font-style: normal;
                 font-size: 300%;
                 text-align: center;
@@ -539,7 +539,7 @@ body {
     
 
         & p {
-            color: aquamarine;
+            color: $color-aquamarine;
             text-align: justify;
             margin: 10pt 0;
         }
@@ -631,7 +631,7 @@ body {
         width: 0.9em;
         margin: 0 0.5em;
         border-radius: 50%;
-        background-color: aquamarine;
+        background-color: $color-aquamarine;
         display: inline-block;
         transition: background-color 0.6s ease;
     }
@@ -746,6 +746,8 @@ body {
             } 
         }
 } 
+
+//Parte de la tienda 
 .store{
     width: 100%;
     height: auto;
@@ -768,48 +770,104 @@ body {
     text-decoration-color: none;
     text-decoration-style: none;
 
-    &__image {
-    overflow:hidden;
-    margin:0;
+        &__image {
+        overflow:hidden;
+        margin:0;
 
-    img{
-    display:block;
-    width: 100%;
-    margin:-30% 0
+            img{
+            display:block;
+            width: 100%;
+            margin:-30% 0
+            }
+
     }
-
-}
     &__top{
     padding: 25px;
     }
 
-   &__header{
+    &__header{
 
-    h1{
-    font-family: $tipo-titulos;
-    font-size: 13pt;
-    color: red;
-    padding: 2%;
-    margin: 0;
-    }
+        h1{
+        font-family: $tipo-titulos;
+        font-size: 13pt;
+        color:$color-red;
+        padding: 2%;
+        margin: 0;
+        }
 
-    h2{
-    color:rgb(58, 58, 58);
+        h2{
+        color:rgb(58, 58, 58);
+        }
+        p{
+        color:gray;
+        }
+        
     }
-    p{
-    color:gray;
-    }
-    
-   }
 
 }
-.top{
-        
+// parte de cada producto 
+.indivi{
+    width: 100%;
+
+    &__header {
+        font-family: $tipo-titulos;
+        font-style: normal;
+        font-size: 300%;
+        text-align: center;
+        color: #FF302A;
+        margin-top:15px;
+    }
+
+    &__container{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
     &__right{
-
+        width: 100%;
+        height: auto;
+        background: green;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 0 20px;
+        border-radius: 23px;
+        margin: 2%;
+        text-decoration: none;
+    }
+    .indivi__image {
+        overflow: hidden;
+        margin:5%;
+        width: 100%;
+            img{
+            display:block;
+            width: 100%;
+            margin:-30% 0
+            }
+      
     }
 
+    &__gallery{
+        display: flex;
+        width: 100%;
+        background: red;
+    }
+        .gallery__mini {
+            overflow: hidden;
+            margin:0;
+            width: 100%;
+    
+                img{
+                display:block;
+                width: 100%;
+                margin:-30% 0
+                }
+    }
     &__left{
-
+    width: 50%;
     }
+
 }
