@@ -1,9 +1,10 @@
 $tipo-titulos:'Montserrat', sans-serif;
 $tipo-texto:'Quicksand', sans-serif;
 $color-blanco: white;
-$color-blue:#134595;
+$color-blue: #134595;
 $color-red: #eb5866;
 $color-aquamarine: #43CDEC;
+$color-otherWhite: #f6f6f6;
 //---------------TALLER 1----------------------
 /*------------------------
 [TABLE OF CONTENTS]
@@ -23,6 +24,9 @@ $color-aquamarine: #43CDEC;
 
 html {
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 * {
@@ -32,8 +36,8 @@ html {
 }
 
 body {
-    font-family: 'Quicksand', sans-serif;
-    background-color: #134595;
+    font-family: $tipo-texto;
+    background-color: blue;
 }
 
 
@@ -45,15 +49,25 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     height: 10%;
     margin-top: 2%;
-    margin-left: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     position: relative;
 
     &__logo{
-        width: 10px;
+        margin-top: 10px;
+        width: 70px;
         height: 20px;
+    }
+
+    &__buttons{
+        
+        
+        img{
+            width:40px;
+        }
     }
 
     /* NAVIGATION */
@@ -63,6 +77,7 @@ body {
         align-content: space-between;
         position: relative;
         transition: all .4s ease;
+        
             & a {
             font-size: 12pt;
             text-decoration: none;
@@ -72,7 +87,6 @@ body {
             padding: 20px 2em;
             cursor: pointer;
             outline: none;
-            border: none;
             background: none;
             }
             & a::after {
@@ -115,7 +129,7 @@ body {
                 & a {
                     font-size: 12pt;
                     text-decoration: none;
-                    color: #134595;
+                    color: blue;
                     position: relative;
                     align-content: space-between;
                     padding: 20px 2em;
@@ -184,9 +198,9 @@ body {
     /* Bottom banner */
 
     &__bottom {
-        font-family: 'Montserrat', sans-serif;
+        font-family: $tipo-titulos;
         font-size: 200%;
-        color: #eb5866;
+        color: red;
         margin: 5% 0;
     }
 }
@@ -204,7 +218,7 @@ body {
 
 
 & h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $tipo-titulos;
     font-weight: bolder;
     font-size: 700%;
     color: white;
@@ -253,11 +267,11 @@ body {
 
 
 & h2 {
-    font-family: 'Montserrat';
+    font-family: $tipo-titulos;
     font-size: 250%;
     font-style: normal;
     font-weight: bold;
-    color: #43CDEC;
+    color: aquamarine;
     position: absolute;
     text-align: end;
     margin-bottom: 5%;
@@ -325,9 +339,9 @@ body {
 
 
     &__header {
-        font-family: 'Montserrat';
+        font-family: $tipo-titulos;
         font-size: 13pt;
-        color: #eb5866;
+        color: red;
         padding: 2%;
         margin: 0;
     }
@@ -525,7 +539,7 @@ body {
     
 
         & p {
-            color: #43CDEC;
+            color: aquamarine;
             text-align: justify;
             margin: 10pt 0;
         }
@@ -617,7 +631,7 @@ body {
         width: 0.9em;
         margin: 0 0.5em;
         border-radius: 50%;
-        background-color: #43CDEC;
+        background-color: aquamarine;
         display: inline-block;
         transition: background-color 0.6s ease;
     }
@@ -667,54 +681,123 @@ body {
         padding: 10px 2em;
     }
 
-@media (max-width: 500px) {
-    &__list{
-        font-size: 5pt;
+    @media (max-width: 500px) {
+        &__list{
+            font-size: 5pt;
+        }
+        & img{
+            width: 80px;
+        }
     }
-    & img{
-        width: 80px;
-    }
-}
 }
 //---------TALLER2----------------------------
+
+.contextual{
+    text-decoration: none;
+    display: flex;
+    width: 40%;
+    margin-top: 30px;
+    margin-left: 30%;
+    margin-right: 20%;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: all .4s ease;
+    border-style: solid;
+    border-top-color: white;;
+    border-right: none;
+    border-left: none;
+    border-bottom:none;
+    border-bottom-width: 2px;
+
+            &__list {
+            font-size: 12pt;
+            text-decoration: none;
+            color: white;
+            position: relative;
+            padding: 20px 2em;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            background: none;
+            
+            &::after {
+                content: "";
+                display: block;
+                height: 0.3em;
+                background: #FF302A;
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                bottom: -2;
+                transition: transform .3s ease;
+                transform: scale(0, 1);
+            }
+            
+            &:hover::after {
+                transform: scale(1, 1);
+            }
+            
+            &:focus::after {
+                transform: scale(1, 1);
+            }
+            
+            &--active::after {
+                transform: scale(1, 1);
+            } 
+        }
+} 
 .store{
     width: 100%;
-    height: 30%;
-    margin: 0%;
+    height: auto;
     display: flex;
+    padding-top: 3em;
     flex-direction: row;
+    flex-wrap: wrap;
     align-content: space-between;
 }
 .product{
-    width: 30%;
-    background-color: white;
+    width: 25%;
+    background-color: #f6f6f6;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: column;
     position: relative;
-    padding: 0 25px;
+    padding: 0 20px;
     border-radius: 23px;
-    margin: 5%;
+    margin: 2%;
+    text-decoration: none;
+    text-decoration-color: none;
+    text-decoration-style: none;
 
-    &__image{
+    &__image {
+    overflow:hidden;
+    margin:0;
+
+    img{
+    display:block;
     width: 100%;
+    margin:-30% 0
+    }
+
+}
+    &__top{
+    padding: 25px;
     }
 
    &__header{
 
     h1{
-    font-family: 'Montserrat';
+    font-family: $tipo-titulos;
     font-size: 13pt;
-    color: #eb5866;
+    color: red;
     padding: 2%;
     margin: 0;
     }
 
     h2{
-
+    color:rgb(58, 58, 58);
     }
     p{
-        
+    color:gray;
     }
     
    }

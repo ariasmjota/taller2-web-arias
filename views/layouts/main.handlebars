@@ -15,8 +15,7 @@
 </head>
 
 <body>
-
-    <!-- Inicio el header -->
+ <!-- Inicio el header -->
     <header class="header">
         <!-- Elementos del header -->
 
@@ -26,31 +25,34 @@
 
         <nav class="header__list listnav">
             <a href="/#banner" class="listnav__a">NEW RELEASES</a>
-            <a href="/store" class="listnav__a store">SHOP</a>
+            <a href="/store"class="listnav__a">SHOP</a>
             <a href="/#presentation" class="listnav__a">KNOW</a>
             <a href="/#characteristic" class="listnav__a">FOR YOU</a>
             <a href="/#gallery" class="listnav__a">GALLERY</a>
         </nav>
-
+        
+       <section class="header__buttons">
         <button class="header__btn">
-            <img src="/images/tienda.png" alt="">
+            <img src="images/tienda.png" alt="">
         </button>
 
         <button class="header__btn">
-            <img src="/images/buscar.png" alt="">
+            <img src="images/buscar.png" alt="">
         </button>
+        </section>
 
-        {{!-- Responsive --}}
+        <!-- Responsive -->
         <button class="header__responsive">
-            <img src="/images/menu.png" alt="">
+            <img src="images/menu.png" alt="">
         </button>
     </header>
+    <!-- Cierro header -->
 
     {{!-- Navegacion contextual --}}
     <section class="contextual">
-        <a href="/store/category/Men's Shoe" class="contextual__a">MEN</a>
-        <a href="/store/category/Women's Shoe" class="contextual__a">WOMAN</a>
-        <a href="/store/category/Kid's Shoe" class="contextual__a">KID</a>
+        <a href="/store/category/Men's Shoe" class="contextual__list">MEN</a>
+        <a href="/store/category/Women's Shoe" class="contextual__list">WOMAN</a>
+        <a href="/store/category/Kid's Shoe" class="contextual__list">KID</a>
 
     </section>
 
