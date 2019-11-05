@@ -95,5 +95,4 @@ function mostrarImagenes(n) {
   puntos[numImagen-1].className += " active";
 
 }
-}
-window.addEventListener('load', handleLoad);
+}window.addEventListener('load', handleLoad);

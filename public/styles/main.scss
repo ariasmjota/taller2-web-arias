@@ -820,6 +820,7 @@ body {
 
     &__container{
         display: flex;
+        margin-top: 5%;
         width: 100%;
         flex-direction: row;
         justify-content: space-between;
@@ -829,23 +830,29 @@ body {
     &__right{
         width: 100%;
         height: auto;
-        background: green;
         display: flex;
         flex-direction: column;
         position: relative;
         padding: 0 20px;
         border-radius: 23px;
-        margin: 2%;
         text-decoration: none;
+        flex-grow: 2;
     }
+    &__left{
+        width: 100%;
+        flex-grow: 2;
+       
+    }
+}
     .indivi__image {
         overflow: hidden;
-        margin:5%;
         width: 100%;
+        border-radius: 23px;
             img{
             display:block;
             width: 100%;
-            margin:-30% 0
+            margin:-30% 0;
+            
             }
       
     }
@@ -853,21 +860,41 @@ body {
     &__gallery{
         display: flex;
         width: 100%;
-        background: red;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        &__photos{
+            flex-basis: 75%;
+            background-color: white;
+            background-size: contain ;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all .3s ease-in-out;
+        }
     }
+    
         .gallery__mini {
             overflow: hidden;
-            margin:0;
-            width: 100%;
+            margin:5px;
+            width: 45%;
+            border-radius: 23px;
     
                 img{
                 display:block;
                 width: 100%;
-                margin:-30% 0
+                margin:-30% 0;
                 }
-    }
-    &__left{
-    width: 50%;
-    }
 
-}
+                &:hover{
+                    opacity: 1;
+                    cursor: pointer;
+                }
+                
+                &.active{
+                    opacity: 1;
+                }
+            }
+            
+
+    
+

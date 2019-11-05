@@ -1,6 +1,8 @@
 //------Para galeria de imagenes del producto-----
 
 //variables de la galeria
+function handleLoad() {
+  
     var images = document.querySelectorAll('.gallery__mini');
     var banner = document.querySelector('.gallery__photos');
    
@@ -37,3 +39,4 @@
         images.forEach(loadImages);
 
     }
+}window.addEventListener('load', handleLoad);

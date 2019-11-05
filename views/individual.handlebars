@@ -1,60 +1,58 @@
-  <!-- Imagen del producto y Galeria-->
-   
-  <section class="indivi">
-     
-   <h1 class="indivi__header"> {{individual.name}}</h1>
+<section class="indivi">
 
-     <section class="indivi__container">
-        <section class="indivi__right">
-            
-            <div class="indivi__image">
-                 <img src="/images/{{individual.images.[0]}}"> 
-            </div>
+  <h1 class="indivi__header"> {{individual.name}}</h1>
+
+  <section class="indivi__container">
+    <section class="indivi__right">
+
+      <div class="indivi__image">
+        <img src="/images/{{individual.images.[0]}}">
+      </div>
 
 
-            <article class="indivi__gallery">
+      <article class="indivi__gallery">
 
-                <div class="gallery__mini">
-                 <img src="/images/{{individual.images.[1]}}">
-                </div>
-                <div class="gallery__mini">
-                 <img src="/images/{{individual.images.[2]}}">
-                </div>
-                <div class="gallery__mini">
-                 <img src="/images/{{individual.images.[3]}}">
-                </div>
-                <div class="gallery__mini">
-                 <img src="/images/{{individual.images.[4]}}">
-                </div>
-                 {{!-- <div class="gallery__mini" style=" background-image: url(/imagenes/{{imagenes.[2]}})"></div> --}}
-            </article>
+        <div class="gallery__mini">
+          <img src="/images/{{individual.images.[1]}}">
+        </div>
+        <div class="gallery__mini">
+          <img src="/images/{{individual.images.[2]}}">
+        </div>
+        <div class="gallery__mini">
+          <img src="/images/{{individual.images.[3]}}">
+        </div>
+        <div class="gallery__mini">
+          <img src="/images/{{individual.images.[4]}}">
+        </div>
+        {{!-- <div class="gallery__mini" style=" background-image: url(/imagenes/{{imagenes.[2]}})"></div> --}}
+      </article>
 
-              <div class="galerlly__photos">
+      <div class="gallery__photos">
 
-             
-              </div>
 
-        </section>
-        <!-- Detalles del producto -->
-        
-        <section class="product__left left">
-            <article class="left__top top">
-            <h1 class="top__indivi">{{individual.price}}</h1>
-            <p class="top__indivi">{{individual.colors}}</p>
-            </article>
-            <article class="left__info info">
-            <p class="info__indivi">{{individual.characteristic}} </p>
-            <a class="info__indivi">Read More...</a>
-            <p class="info__indivi">{{individual.characOne}} </p>
-            <p class="info__indivi">{{individual.characTwo}} </p>
-            <p class="info__indivi">{{individual.characThree}} </p>
-            </article>
-           
-        </section>
+      </div>
 
-        </section>
-
-        <button class="buy__btn">ADD TO BAG  <i data-feather="shopping-bag"></i> </button>
-         {{!-- Cargo el sricp que servira para esta plantilla --}}
-   
     </section>
+    <!-- Detalles del producto -->
+
+    <section class="indivi__left">
+      <article class="left__top top">
+        <h1 class="top__indivi">{{individual.price}}</h1>
+        <p class="top__indivi">{{individual.colors}}</p>
+      </article>
+      <article class="left__info info">
+        <p class="info__indivi">{{individual.characteristic}} </p>
+        <a class="info__indivi">Read More...</a>
+        <p class="info__indivi">{{individual.characOne}} </p>
+        <p class="info__indivi">{{individual.characTwo}} </p>
+        <p class="info__indivi">{{individual.characThree}} </p>
+      </article>
+
+    </section>
+
+  </section>
+
+  <button class="buy__btn">ADD TO BAG <i data-feather="shopping-bag"></i> </button>
+  {{!-- Cargo el sricp que servira para esta plantilla --}}
+
+</section>

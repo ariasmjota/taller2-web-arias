@@ -985,6 +985,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 5%;
   width: 100%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -998,7 +999,6 @@ body {
 .indivi__right {
   width: 100%;
   height: auto;
-  background: green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1009,14 +1009,23 @@ body {
   position: relative;
   padding: 0 20px;
   border-radius: 23px;
-  margin: 2%;
   text-decoration: none;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+
+.indivi__left {
+  width: 100%;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
 }
 
 .indivi .indivi__image {
   overflow: hidden;
-  margin: 5%;
   width: 100%;
+  border-radius: 23px;
 }
 
 .indivi .indivi__image img {
@@ -1030,22 +1039,23 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background: red;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .indivi .gallery__mini {
   overflow: hidden;
-  margin: 0;
-  width: 100%;
+  margin: 5px;
+  width: 45%;
+  border-radius: 23px;
 }
 
 .indivi .gallery__mini img {
   display: block;
   width: 100%;
   margin: -30% 0;
-}
-
-.indivi__left {
-  width: 50%;
 }
 /*# sourceMappingURL=main.css.map */
