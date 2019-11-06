@@ -13,24 +13,24 @@
         <section class="store__filter filters">
         <h2>Filter by</h2>
             <article class="filters__type">
-                <a href="/store/category/Jordan" class="contextual__list">JORDAN</a>
-                <a href="/store/category/Skate" class="contextual__list">SKATE</a>
-                <a href="/store/category/Basketball" class="contextual__list">BASKETBALL</a>
+                <a href="/store/type/Jordan" class="filters__list">JORDAN</a>
+                <a href="/store/type/Skate" class="filters__list">SKATE</a>
+                <a href="/store/type/Basketball" class="filters__list">BASKETBALL</a>
             </article>
             <article class="filters__colors">
-                    <a href="/store/category/Jordan">
-                    <div class="filters__colors--item" style=" background-color: rgb(5, 5, 5)">
-                    </div></a>
-                    <div class="filters__colors--item" style=" background-color: #E8E8E8" onclick="location.href='/tienda/Silver/#sec-tienda';"></div>
-                    <div class="filters__colors--item" style=" background-color: rgb(163, 33, 10)" onclick="location.href='/tienda/Pink/#sec-tienda';"></div>
-                    <div class="filters__colors--item" style=" background-color: #053cc5" onclick="location.href='/tienda/Blue/#sec-tienda';"></div>
-                    <div class="filters__colors--item" style=" background-color: rgb(45, 167, 56)" onclick="location.href='/tienda/Brown/#sec-tienda';"></div>
-                    <div class="filters__colors--item" style=" background-color: rgb(230, 126, 28)" onclick="location.href='/tienda/Brown/#sec-tienda';"></div>
+                    <a href="/store/colors/Black"><div class="filters__colors--item" style=" background-color: rgb(5, 5, 5)"></div></a>
+                    <a href="/store/colors/White"><div class="filters__colors--item" style=" background-color: #E8E8E8" ></div></a>
+                    <a href="/store/colors/Marron"><div class="filters__colors--item" style=" background-color: rgb(163, 33, 10)" ></div></a>
+                    <a href="/store/colors/Blue"><div class="filters__colors--item" style=" background-color: #053cc5"></div></a>
+                    <a href="/store/colors/Green"><div class="filters__colors--item" style=" background-color: rgb(45, 167, 56)"></div></a>
+                    <a href="/store/colors/Starfish"><div class="filters__colors--item" style=" background-color: rgb(230, 126, 28)"></div></a>
             </article>
     </section>
 
-    <section class="store__sort"> </section>
-
+    <section class="store__sort"> 
+        <a href="/store/sort/Price" class="filters__list">PRICE</a>
+        <a href="/store/sort/Size" class="filters__list">SIZE</a>
+    </section>
 
     {{#each productsList}}
 
