@@ -1,9 +1,40 @@
 <section class="store">
+    <section class="store__top">
+        <h1 class="indivi__header">Store Now</h1>
+            <article class="indivi__btns">
+            <button class="header__btn">
+                <img src="images/filter.png" alt=""></a>
+            </button> <button class="header__btn">
+                <img src="images/sort.png" alt=""></a>
+            </button>
+            </article>
+    </section>
+
+        <section class="store__filter filters">
+        <h2>Filter by</h2>
+            <article class="filters__type">
+                <a href="/store/category/Jordan" class="contextual__list">JORDAN</a>
+                <a href="/store/category/Skate" class="contextual__list">SKATE</a>
+                <a href="/store/category/Basketball" class="contextual__list">BASKETBALL</a>
+            </article>
+            <article class="filters__colors">
+                    <a href="/store/category/Jordan">
+                    <div class="filters__colors--item" style=" background-color: rgb(5, 5, 5)">
+                    </div></a>
+                    <div class="filters__colors--item" style=" background-color: #E8E8E8" onclick="location.href='/tienda/Silver/#sec-tienda';"></div>
+                    <div class="filters__colors--item" style=" background-color: rgb(163, 33, 10)" onclick="location.href='/tienda/Pink/#sec-tienda';"></div>
+                    <div class="filters__colors--item" style=" background-color: #053cc5" onclick="location.href='/tienda/Blue/#sec-tienda';"></div>
+                    <div class="filters__colors--item" style=" background-color: rgb(45, 167, 56)" onclick="location.href='/tienda/Brown/#sec-tienda';"></div>
+                    <div class="filters__colors--item" style=" background-color: rgb(230, 126, 28)" onclick="location.href='/tienda/Brown/#sec-tienda';"></div>
+            </article>
+    </section>
+
+    <section class="store__sort"> </section>
 
 
     {{#each productsList}}
 
-    <a href="/store/{{this.name}}" class="product">
+          <a href="/store/{{this.name}}" class="product">
         <!-- Detalles del producto -->
 
         {{!-- Imagen del producto --}}
@@ -12,14 +43,18 @@
         </section>
 
         {{!-- Informacion del producto  --}}
-        <section class="product__top top">
+        <section class="product__top"> 
+      
+
             <article class="top__right">
                 <h1 class="product__header"> {{this.name}}</h1>
                 <h2 class="product__header"> {{this.category}}</h2>
-                <p class="product__header">{{this.colors}}</p>
+                <h1 class="product__header">{{this.price}}</h1>
             </article>
             <article class="top__left">
-                <h1 class="product__header">{{this.price}}</h1>
+               
+                <button class="buy__btn">ADD TO BAG <i data-feather="shopping-bag"></i> </button>
+  {{!-- Cargo el sricp que servira para esta plantilla --}}
             </article>
         </section>
     </a>
