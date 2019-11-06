@@ -78,7 +78,7 @@ function createRoutes(app, db) {
                 response.render('store', contexto);
             });
     });
-     //Ruta filtros Jordan - Skate - Bascketball
+     //Ruta filtros colores
      app.get('/store/colors/:colors', function (request, response) {
 
         console.log('Entro al filtro type');
@@ -94,6 +94,44 @@ function createRoutes(app, db) {
                 response.render('store', contexto);
             });
     });
+
+     //Ruta orden precio
+     app.get('/store/sort/price', function (request, response) {
+
+        console.log('Entro al sort price');
+
+        var price = request.params.price;
+
+        products.find().sort({ price: -1 })
+            .toArray(function (err, filter) {
+                var contexto = {
+                    productsList: filter,
+
+                };
+                response.render('store', contexto);
+            });
+    });
+
+    //Ruta orden precio
+    app.get('/store/sort/size', function (request, response) {
+
+        console.log('Entro al sort size');
+
+        var price = request.params.price;
+
+        products.find().sort({ size: 1 })
+            .toArray(function (err, filter) {
+                console.log(filter);
+                var contexto = {
+                   
+                    productsList: filter,
+
+                };
+                response.render('store', contexto);
+            });
+    });
+    
+
 
 
     //Ruta al carrito
@@ -117,20 +155,19 @@ function createRoutes(app, db) {
 app.post('/checkout', function(request, response) {
     
     var order = {
-       correo:request.body.correo,
-       telefono:request.body.telefono,
-       nombre:request.body.nombre,
-       apellido:request.body.apellido,
-       direccion:request.body.direccion,
-       pais:request.body.pais,
-       estado:request.body.estado,
-       ciudad:request.body.ciudad,
+       email:request.body.correo,
+       phone:request.body.telefono,
+       firstName:request.body.nombre,
+       lastName:request.body.apellido,
+       address:request.body.direccion,
+       country:request.body.pais,
+       state:request.body.estado,
+       city:request.body.ciudad,
        zip:request.body.zip,
-       tarjeta:request.body.tarjeta,
-       fecha:request.body.fecha,
-       mes:request.body.mes,
+       card:request.body.tarjeta,
+       year:request.body.fecha,
+       month:request.body.mes,
        cvv:request.body.cvv,
-       nombre__tarjeta:request.body.nombre__tarjeta,
        //products:JSON.parse(request.body.products),
        total:request.body.total
        

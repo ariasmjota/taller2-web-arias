@@ -1,15 +1,16 @@
 //------------------------Carrito de compras-------------------------------   
 
-var buyButton = document.querySelectorAll('.buy__btn');
-var num__buy = document.querySelector('.header_bag');
-var res_compra = document.querySelector('.car__abstract');
-var total__buy = document.querySelector('.abstract__num-total');
-var subtotal= document.querySelector('.abstract__sub');
-var carList = [];
-var comp = document.querySelector('.products__list');
+var botonesPestana = document.querySelectorAll('.carac__btn');
+var botonesProducto = document.querySelectorAll('.producto__btn');
+var num_compra = document.querySelector('.nav-fija__compra');
+var res_compra = document.querySelector('.resumen__cantidad');
+var total__compra = document.querySelector('.resumen__num-total');
+var subtotal= document.querySelector('.resumen__sub');
+var listaCarrito = [];
+var comp = document.querySelector('.lista-productos');
 
-if (localStorage.getItem('carList') != null) {
-    carList = JSON.parse(localStorage.getItem('carList'));
+if (localStorage.getItem('listaCarrito') != null) {
+    listaCarrito = JSON.parse(localStorage.getItem('listaCarrito'));
 }
 
 
@@ -18,11 +19,11 @@ function actualizarCarrito() {
     var cantidad=1;
 
     //Numero de elementos del carrito
-    num__buy.innerHTML = carList.length;
+    num_compra.innerHTML = listaCarrito.length;
 
     //Numero de productos en el resumen
     if (res_compra != null) {
-        res_compra.innerHTML = carList.length + " PRODUCTS";
+        res_compra.innerHTML = listaCarrito.length + " PRODUCTS";
     }
     if(comp!=null){
         comp.innerHTML="";
@@ -30,13 +31,13 @@ function actualizarCarrito() {
     
 
 
-    carList.forEach(function (product, index) {
+    listaCarrito.forEach(function (producto, index) {
 
         //Crear un contenedor por cada producto en el carrito
         
-        var contNuevo = document.createElement('section');
+        var contNuevo = document.createElement('div');
         var imgNuevo = document.createElement('div');
-        var nombreNuevo = document.createElement('h1');
+        var nombreNuevo = document.createElement('p');
         var btnNuevo = document.createElement('button');
         var cantNuevo = document.createElement('p');
         var btnNuevo2 = document.createElement('button');
@@ -65,8 +66,8 @@ function actualizarCarrito() {
         eliminarNuevo.className = 'item-carro__eliminar fas fa-trash';
 
         imgNuevo.style.backgroundImage = 'url(' + producto.imagen + ')';
-        nombreNuevo.innerHTML = product.nombre;
-        precioNuevo.innerHTML = product.precio;
+        nombreNuevo.innerHTML = producto.nombre;
+        precioNuevo.innerHTML = producto.precio;
         cantNuevo.innerHTML = ""+cantidad;
         btnNuevo.innerHTML = '-';
         btnNuevo2.innerHTML = '+';
@@ -77,8 +78,8 @@ function actualizarCarrito() {
 
         //Total de la compra
             var temp = new String();
-            for (let i = 1; i < product.precio.length; i++) {
-                temp += product.precio[i];
+            for (let i = 1; i < producto.precio.length; i++) {
+                temp += producto.precio[i];
             }
             suma += parseInt(temp);
             
@@ -89,15 +90,15 @@ function actualizarCarrito() {
         cantidad++;
         console.log(cantidad);
         cantNuevo.innerHTML=""+cantidad;
-        carList.push(product);
-        localStorage.setItem('carList', JSON.stringify(carList));
-        num__buy.innerHTML = carList.length;
+        listaCarrito.push(producto);
+        localStorage.setItem('listaCarrito', JSON.stringify(listaCarrito));
+        num_compra.innerHTML = listaCarrito.length;
         var temp = new String();
-            for (let i = 1; i < product.precio.length; i++) {
+            for (let i = 1; i < producto.precio.length; i++) {
                 temp += producto.precio[i];
             }
             suma += parseInt(temp);
-            total__buy.innerHTML = "$" + suma;   
+            total__compra.innerHTML = "$" + suma;   
             //actualizarCarrito();
     });
 
@@ -106,16 +107,16 @@ function actualizarCarrito() {
         //Eliminar elemento del carrito
         eliminarNuevo.addEventListener('click', function () {
             
-            carList.splice(index, 1);
+            listaCarrito.splice(index, 1);
             contNuevo.remove();
-            localStorage.setItem('carList', JSON.stringify(carList));
-            num__buy.innerHTML = carList.length;
+            localStorage.setItem('listaCarrito', JSON.stringify(listaCarrito));
+            num_compra.innerHTML = listaCarrito.length;
             actualizarCarrito();
         });
     });
 
-    if (total__buy != null) {
-        total__buy.innerHTML = "$" + suma;  
+    if (total__compra != null) {
+        total__compra.innerHTML = "$" + suma;  
         subtotal.innerHTML="$"+ suma; 
     }
 
@@ -133,14 +134,14 @@ function recorrerBtnProductos(btn) {
 
         console.log("se agrega");
 
-        var productoN = {
+        var producto = {
             nombre: nombre,
             precio: precio,
             imagen: imagen
         }
-        carList.push(productoN);
+        listaCarrito.push(producto);
         actualizarCarrito();
-        localStorage.setItem('carList', JSON.stringify(carList));
+        localStorage.setItem('listaCarrito', JSON.stringify(listaCarrito));
     }
 
     btn.addEventListener('click', agregarCarritoProductos);
@@ -160,21 +161,21 @@ function recorrerBtnPestana(btn) {
 
         console.log(imagen);
 
-        var productoN = {
+        var producto = {
             nombre: nombre,
             precio: precio,
             imagen: imagen
         }
-        carList.push(productoN);
+        listaCarrito.push(producto);
         actualizarCarrito();
-        localStorage.setItem('carList', JSON.stringify(carList));
+        localStorage.setItem('listaCarrito', JSON.stringify(listaCarrito));
     }
 
     btn.addEventListener('click', agregarCarritoPestana);
 
 }
-if (buyButton != null) {
-    buyButton.forEach(recorrerBtnPestana);
+if (botonesPestana != null) {
+    botonesPestana.forEach(recorrerBtnPestana);
 }
 
 //----------Enviar lista de productos a base de datos---------
@@ -183,14 +184,14 @@ function enviarProductos(event){
 //event.preventDefault();
 //   console.log("holiii")
 var input= document.querySelector('.formularios__productos');
-input.value=localStorage.getItem('carList');
-localStorage.removeItem('carList');
+input.value=localStorage.getItem('listaCarrito');
+localStorage.removeItem('listaCarrito');
 }
 function enviarTotal(event){
 //event.preventDefault();
 //   console.log("holiii")
 var input= document.querySelector('.formularios__total');
-input.value=total__buy.innerHTML;
+input.value=total__compra.innerHTML;
 console.log(input.value);
 }
 if(form!=null){
@@ -198,3 +199,6 @@ form.addEventListener('submit',enviarProductos);
 form.addEventListener('submit',enviarTotal);
 };
 
+
+
+}

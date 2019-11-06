@@ -1,9 +1,9 @@
 function handleLoad() {
-    var listaCarrito= [];
+    var carList= [];
 
-    if(localStorage.getItem('listaCarrito')!=null){
-        listaCarrito = JSON.parse(localStorage.getItem('listaCarrito'));
+    if(localStorage.getItem('carList')!=null){
+        carList = JSON.parse(localStorage.getItem('carList'));
     }
    var num_compra=document.querySelector('.shopping-bag');
-   num_compra.innerHTML = listaCarrito.length;
+   num_compra.innerHTML = carList.length;
 }window.addEventListener('load', handleLoad);

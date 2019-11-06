@@ -1,119 +1,113 @@
-<article class="cont-pago">
-         <h2 class="cont-pago__titulo">CHECKOUT.</h2>
+<article class="cont__pay">
+    <h2 class="cont__pay">CHECKOUT</h2>
 
-        <article class="pago">
+    <article class="pay">
 
-            <form class="pago__formularios" action="/checkout" method="POST">
+        <form class="pay__forms" action="/checkout" method="POST">
 
-                <h2 class="formularios__titulo">Contact information</h2>
+            <h2 class="pay__forms">Contact information</h2>
 
-                <input name="correo" type="text" placeholder="email" class="formularios__item formularios__correo">
+                <input class="fomrs__item" name="email" type="text" placeholder="Email">
 
-                <input name="telefono" type="text" placeholder="phone" class="formularios__item formularios__telefono">
+                <input class="fomrs__item" name="phone" type="text" placeholder="Phone Number">
 
-                <h2 class="formularios__titulo">Delivery information</h2>
+            <h2 class="pay__forms">Delivery information</h2>
 
-                <div class="formularios__horizontal">
+                <div class="forms__selector">
 
-                    <input name="nombre" type="text" placeholder="First Name" class="formularios__item formularios__nombre">
+                    <input class="fomrs__item" name="firsName" type="text" placeholder="First Name">
 
-                <input name="apellido" type="text" placeholder="Last Name" class="formularios__item formularios__apellido">
-
-                </div>
-
-                <input name="direccion" type="text" placeholder="Address" class="formularios__item formularios__direccion">
-
-                <input name="pais" type="text" placeholder="Country" class="formularios__item formularios__pais">
-
-                <div class="formularios__horizontal">
-
-                    <select name="estado" class="formularios__item formularios__estado">
-                        <option value="" disabled selected>State</option>
-                 <option value="California">California</option>
-                <option value="Florida">Florida</option>
-                <option value="Texas">Texas</option>
-                <option value="Washington">Washington</option>
-                </select>
-
-                
-                <input name="ciudad" type="text" placeholder="City" class="formularios__item formularios__ciudad">
-
-                <input name="zip" type="text" placeholder="Zip Code" class="formularios__item formularios__zip">
+                    <input class="fomrs__item" name="lastName" type="text" placeholder="Last Name">
 
                 </div>
 
-                <h2 class="formularios__titulo">Payment</h2>
+                <input class="fomrs__item" name="address" type="text" placeholder="Address">
 
-                  <div class="formularios__horizontal">
-                <i class="fab fa-cc-visa formularios__tarjeta"></i>
+                <input class="fomrs__item" name="country" type="text" placeholder="Country">
 
-                <i class="fab fa-cc-mastercard formularios__tarjeta"></i>
-                </div>
+            <div class="forms__horizontal">
 
-                <input name="tarjeta" type="text" placeholder="Card Number" class="formularios__item formularios__num-tar">
-
-                <h2 class="formularios__titulo formularios__titulo--pequeno">Expiration Date</h2>
-
-                 <div class="formularios__horizontal">
-
-                <select name="fecha" class="formularios__item formularios__fecha">
-                        <option value="" disabled selected>Year</option>
-                 <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
+                <select name="state" class="forms__item">
+                    <option value="" disabled selected>State</option>
+                    <option value="California">California</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Texas">Texas</option>
+                    <option value="Washington">Washington</option>
                 </select>
 
-                <select name="mes" class="formularios__item formularios__fecha">
-                <option value="" disabled selected>Month</option>
-                 <option value="Jan">Jan</option>
-                <option value="Feb">Feb</option>
-                <option value="Mar">Mar</option>
-                <option value="Apr">Apr</option>
-                <option value="May">May</option>
-                <option value="Jun">Jun</option>
-                <option value="Jul">Jul</option>
-                <option value="Aug">Aug</option>
-                <option value="Sep">Sep</option>
-                <option value="Oct">Oct</option>
-                <option value="Nov">Nov</option>
-                <option value="Dec">Dec</option>
+
+                <input class="forms__item" name="city" type="text" placeholder="City" >
+
+                <input class="forms__item" name="zip" type="text" placeholder="Zip Code" >
+
+            </div>
+
+            <h2 class="pay__forms">Payment</h2>
+
+                <input class="forms__item" name="card" type="text" placeholder="Card Number">
+
+            <h2 class="pay__forms">Expiration Date</h2>
+
+            <div class="forms__horizontal">
+
+                <select name="year" class="forms__item ">
+                    <option value="" disabled selected>Year</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
                 </select>
 
-                <input name="cvv" type="text" placeholder="CVV" class="formularios__item formularios__cvv">
+                <select name="month" class="forms__item">
+                    <option value="" disabled selected>Month</option>
+                    <option value="Jan">Jan</option>
+                    <option value="Feb">Feb</option>
+                    <option value="Mar">Mar</option>
+                    <option value="Apr">Apr</option>
+                    <option value="May">May</option>
+                    <option value="Jun">Jun</option>
+                    <option value="Jul">Jul</option>
+                    <option value="Aug">Aug</option>
+                    <option value="Sep">Sep</option>
+                    <option value="Oct">Oct</option>
+                    <option value="Nov">Nov</option>
+                    <option value="Dec">Dec</option>
+                </select>
 
-               
-            </div> 
+                <input name="cvv" type="text" placeholder="CVV" class="forms__item forms__cvv">
 
-             <input name="nombre__tarjeta" type="text" placeholder="Full name on card" class="formularios__item formularios__nombre-tarjeta"> 
-
-             <input type="hidden" name="productos" class="formularios__productos">
-             <input type="hidden" name="total" class="formularios__total">
-
-            <button type="submit" class="formularios__btn">BUY NOW</button>
-            
-
-            </form>
-
-
-           
-            <section class="carrito__resumen carrito__resumen--pequeno">
-                <ul class="resumen__lista">
-                  <p class="resumen__titulo">SUMMARY.</p>
-                    <li class="resumen__item resumen__num-prod">  <p class="resumen__cantidad">2 PRODUCTS</p></li>
-                    <li class="resumen__item">  <p class="resumen__subtotal">Subtotal</p> <p class="resumen__sub resumen__num-sub">$899</p></li>
-
-                    <li class="resumen__item resumen__envio">  <p class="resumen__subtotal">Shipping</p> <p class="resumen__num-sub">FREE</p></li>
-
-                    <li class="resumen__item">  <p class="resumen__total">Total</p> <p class="resumen__num-total">$899</p></li>
+            </div>
 
 
-                    </ul>
+            <input type="hidden" name="productos" class="forms__productos">
+            <input type="hidden" name="total" class="forms__total">
 
-                    
-            </section>
+            <button type="submit" class="forms__btn">BUY NOW</button>
+
+
+        </form>
 
 
 
-        </article>
-        </article>
+        <section class="carrito__resumen carrito__resumen--pequeno">
+            <ul class="resumen__lista">
+                <p class="resumen__titulo">SUMMARY.</p>
+                <li class="resumen__item resumen__num-prod">
+                    <p class="resumen__cantidad">2 PRODUCTS</p>
+                </li>
+
+                <li class="resumen__item">
+                    <p class="resumen__total">Total</p>
+                    <p class="resumen__num-total">$240</p>
+                </li>
+
+
+            </ul>
+
+
+        </section>
+
+
+
+    </article>
+</article>

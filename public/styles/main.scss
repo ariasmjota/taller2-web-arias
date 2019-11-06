@@ -737,7 +737,15 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
-
+    &__buttom {
+        background:$color-red;
+    a{
+        text-decoration-color: white;
+    text-decoration: none;
+   
+    text-decoration-line: none;
+   
+    }
   &__top {
     display: flex;
     width: 100%;
