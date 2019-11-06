@@ -201,4 +201,4 @@ form.addEventListener('submit',enviarTotal);
 
 
 
-}
+}window.addEventListener('load', handleLoad);

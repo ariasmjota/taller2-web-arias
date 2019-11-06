@@ -1,9 +1,12 @@
 function handleLoad() {
-    var carList= [];
 
-    if(localStorage.getItem('carList')!=null){
-        carList = JSON.parse(localStorage.getItem('carList'));
+    var btnFilter = document.querySelector('.header__filter');
+    var filter = document.querySelector('.store__filter');
+
+    function handleClick(){
+        filter.classList.toggle('store__filter--active');
+        console.log('funciona el cambio');
     }
-   var num_compra=document.querySelector('.shopping-bag');
-   num_compra.innerHTML = carList.length;
+    btnFilter.addEventListener('click', handleClick);
+    
 }window.addEventListener('load', handleLoad);

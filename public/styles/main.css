@@ -53,6 +53,24 @@ body {
   /* NAVIGATION */
 }
 
+.header__filter {
+  background: none;
+  border: none;
+}
+
+.header__filter img {
+  width: 70%;
+}
+
+.header__sort {
+  background: none;
+  border: none;
+}
+
+.header__sort img {
+  width: 70%;
+}
+
 .header__logo {
   margin-top: 10px;
   width: 70px;
@@ -907,7 +925,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 3em;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -916,6 +933,10 @@ body {
       flex-wrap: wrap;
   -ms-flex-line-pack: justify;
       align-content: space-between;
+}
+
+.store__filter h2 {
+  color: white;
 }
 
 .store__top {
@@ -1095,8 +1116,76 @@ body {
   opacity: 1;
 }
 
-.filters__colors--item {
-  width: 400px;
-  height: 400px;
+.filter__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  margin-top: 10px;
+  margin-left: 20%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  font-size: 12pt;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  padding: 10px 1em;
+  cursor: pointer;
+  outline: none;
+  background: none;
+}
+
+.store__filter {
+  display: none;
+}
+
+.store__filter--active {
+  display: block;
+}
+
+.store__filter h1 {
+  color: white;
+  font-size: 30px;
+}
+
+.store__filter h2 {
+  color: #43cdec;
+  font-size: 20px;
+}
+
+.filters__colors {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 1em;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.filters__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -52,6 +52,20 @@ body {
   margin-right: 5%;
   position: relative;
 
+  &__filter {
+    background: none;
+    border: none;
+    img {
+      width: 70%;
+    }
+  }
+  &__sort {
+    background: none;
+    border: none;
+    img {
+      width: 70%;
+    }
+  }
   &__logo {
     margin-top: 10px;
     width: 70px;
@@ -733,19 +747,15 @@ body {
   margin-right: 2.5%;
   height: auto;
   display: flex;
-  padding-top: 3em;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
-    &__buttom {
-        background:$color-red;
-    a{
-        text-decoration-color: white;
-    text-decoration: none;
-   
-    text-decoration-line: none;
-   
+  &__filter {
+    h2 {
+      color: white;
     }
+  }
+
   &__top {
     display: flex;
     width: 100%;
@@ -883,7 +893,53 @@ body {
     opacity: 1;
   }
 }
-.filters__colors--item{
-width: 400px;
-height: 400px;
+.filter__list {
+  display: flex;
+  width: 30%;
+  margin-top: 10px;
+  margin-left: 20%;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  font-size: 12pt;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  padding: 10px 1em;
+  cursor: pointer;
+  outline: none;
+  background: none;
+}
+.store__filter {
+    display: none;
+
+    &--active{
+        display: block;
+    }
+  h1 {
+    color: white;
+    font-size: 30px;
+  }
+  h2 {
+    color: $color-aquamarine;
+    font-size: 20px;
+  }
+}
+.filters__colors {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 1em;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+.filters__item {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px;
 }
