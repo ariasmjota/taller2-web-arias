@@ -96,13 +96,28 @@ function createRoutes(app, db) {
     });
 
      //Ruta orden precio
-     app.get('/store/sort/price', function (request, response) {
+     app.get('/store/sort/priceL', function (request, response) {
 
         console.log('Entro al sort price');
 
         var price = request.params.price;
 
         products.find().sort({ price: -1 })
+            .toArray(function (err, filter) {
+                var contexto = {
+                    productsList: filter,
+
+                };
+                response.render('store', contexto);
+            });
+    });
+    app.get('/store/sort/priceH', function (request, response) {
+
+        console.log('Entro al sort price');
+
+        var price = request.params.price;
+
+        products.find().sort({ price: 1 })
             .toArray(function (err, filter) {
                 var contexto = {
                     productsList: filter,
@@ -130,6 +145,7 @@ function createRoutes(app, db) {
                 response.render('store', contexto);
             });
     });
+    
     
 
 

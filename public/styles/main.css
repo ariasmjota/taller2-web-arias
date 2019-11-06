@@ -1188,4 +1188,22 @@ body {
   border-radius: 50%;
   margin: 5px;
 }
+
+.store__sort {
+  display: none;
+}
+
+.store__sort--active {
+  display: block;
+}
+
+.store__sort h1 {
+  color: white;
+  font-size: 30px;
+}
+
+.store__sort h2 {
+  color: #43cdec;
+  font-size: 20px;
+}
 /*# sourceMappingURL=main.css.map */

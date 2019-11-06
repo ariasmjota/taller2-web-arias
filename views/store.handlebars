@@ -4,9 +4,9 @@
         <h1 class="indivi__header">Buy Now</h1>
             <article class="indivi__btns">
             <button class="header__filter">
-                <img src="images/filter.png" alt=""></a>
+                <img src="/images/filter.png" alt=""></a>
             </button> <button class="header__sort">
-                <img src="images/sort.png" alt=""></a>
+                <img src="/images/sort.png" alt=""></a>
             </button>
             </article>
     </section>
@@ -32,8 +32,12 @@
     </section>
 
     <section class="store__sort"> 
-        <a href="/store/sort/price" class="contextual__list">PRICE</a>
-        <a href="/store/sort/size" class="contextual__list">SIZE</a>
+          <h2 >Price:</h2>
+        <a href="/store/sort/priceH" class="filter__list"> Hight-Low</a>
+        <h2>Price:</h2>
+        <a href="/store/sort/priceL" class="filter__list"> Low-Hight</a>
+        <h2>Size:</h2>
+        <a href="/store/sort/size" class="filter__list">SIZE</a>
     </section>
 
     {{#each productsList}}
