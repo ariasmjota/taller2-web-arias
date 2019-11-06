@@ -78,6 +78,22 @@ function createRoutes(app, db) {
                 response.render('store', contexto);
             });
     });
+     //Ruta filtros Jordan - Skate - Bascketball
+     app.get('/store/colors/:colors', function (request, response) {
+
+        console.log('Entro al filtro type');
+
+        var colors = request.params.colors;
+
+        products.find({ colors: colors })
+            .toArray(function (err, filter) {
+                var contexto = {
+                    productsList: filter,
+
+                };
+                response.render('store', contexto);
+            });
+    });
 
 
     //Ruta al carrito
