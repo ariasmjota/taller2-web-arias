@@ -4,16 +4,82 @@ const assert = require('assert');
 
 function createRoutes(app, db) {
     var products = db.collection('products');
-
+    var cartList = [];
 
     app.get('/', (request, response) => {
         response.sendFile(__dirname + '/public/home.html');
     });
 
+
+   
+    app.post('/api/cart/:id', (request, response) => {
+        var id = request.params.id;
+        var query= {};        
+        
+        var esId=false;
+        var cont=1;
+        var encuentraComun=false;
+        
+        products.find({})
+        // transformamos el cursor a un arreglo
+        .toArray((err, result) => {
+            // asegurarnos de que noh ay error
+            
+            //
+            
+            var c=0;
+            for(c;c<result.length;c++){
+                if(request.params.id.toString()===result[c]._id.toString()){
+                    esId=true;  
+                    var i=0;
+                    
+                    for(i;i<cartList.length;i++){
+                        
+                        if (request.params.id.toString()===cartList[i]._id.toString()){
+                            
+                            encuentraComun=true;
+                            
+                            cartList[i].cantidad+=1;
+                            console.log(cartList[i].cantidad);
+                        } 
+                    }
+                    if(encuentraComun!=true){
+                        
+                        result[c].cantidad=cont;
+                        cartList.push(result[c]);
+                    }
+                    
+                } 
+            }
+            
+            
+            if(!esId){
+                response.send({
+                    message: 'error',
+                    cartSize: cartList.length
+                });
+                return;
+            }
+            
+            
+            
+            response.send({
+                cartSize: cartList.length
+            });
+            
+        });
+        
+        
+        
+    });
+    
+
+
     //Ruta a la tienda
     app.get('/store', function (request, response) {
 
         //Mongo: buscar documentos (Paso 3)
+
 
         products.find()
             .toArray(function (err, allProducts) {
@@ -37,9 +103,9 @@ function createRoutes(app, db) {
 
                 };
 
-                if(contexto == null){
-                    response.send('Page not found: '+req.params.pestana);
-                }else{
+                if (contexto == null) {
+                    response.send('Page not found: ' + req.params.pestana);
+                } else {
                     response.render('individual', contexto);
 
                 }
@@ -62,8 +128,8 @@ function createRoutes(app, db) {
                 response.render('store', contexto);
             });
     });
-     //Ruta filtros Jordan - Skate - Bascketball
-     app.get('/store/type/:type', function (request, response) {
+    //Ruta filtros Jordan - Skate - Bascketball
+    app.get('/store/type/:type', function (request, response) {
 
         console.log('Entro al filtro type');
 
@@ -78,8 +144,8 @@ function createRoutes(app, db) {
                 response.render('store', contexto);
             });
     });
-     //Ruta filtros colores
-     app.get('/store/colors/:colors', function (request, response) {
+    //Ruta filtros colores
+    app.get('/store/colors/:colors', function (request, response) {
 
         console.log('Entro al filtro type');
 
@@ -95,8 +161,8 @@ function createRoutes(app, db) {
             });
     });
 
-     //Ruta orden precio
-     app.get('/store/sort/priceL', function (request, response) {
+    //Ruta orden precio
+    app.get('/store/sort/priceL', function (request, response) {
 
         console.log('Entro al sort price');
 
@@ -138,65 +204,186 @@ function createRoutes(app, db) {
             .toArray(function (err, filter) {
                 console.log(filter);
                 var contexto = {
-                   
+
                     productsList: filter,
 
                 };
                 response.render('store', contexto);
             });
     });
-    
-    
+
+
 
 
 
     //Ruta al carrito
     
-    app.get('/shopping', function (request, response) {
-        var contexto = {
-
-        };
-        response.render('cart', contexto);
-    });
-    //Ruta al carrito
-    app.get('/pay', function(request, response) {
-    
-        var contexto = {
+    app.get('/shopping', function (req, res) {
         
-        };
-        response.render('pay',contexto);
+        
+        var listCopy = cartList.slice();
+        var price = 0;
+        var cantidad = 0;
+        
+        if(listCopy!=null){
+            for(var i=0;i<listCopy.length;i++){
+                price+=listCopy[i].price*listCopy[i].cantidad;
+                
+            }
+        }
+        
+        const context={
+            products:listCopy,
+            total:price,
+        }
+        
+        res.render('cart', context);
+        
     });
-
-//Ruta al checkout
-app.post('/checkout', function(request, response) {
     
-    var order = {
-       email:request.body.correo,
-       phone:request.body.telefono,
-       firstName:request.body.nombre,
-       lastName:request.body.apellido,
-       address:request.body.direccion,
-       country:request.body.pais,
-       state:request.body.estado,
-       city:request.body.ciudad,
-       zip:request.body.zip,
-       card:request.body.tarjeta,
-       year:request.body.fecha,
-       month:request.body.mes,
-       cvv:request.body.cvv,
-       //products:JSON.parse(request.body.products),
-       total:request.body.total
-       
-    };
-
-    var collection =db.collection('orders');
-    collection.insertOne(order,function(err){
-        assert.equal(err,null);
-        console.log("Pedido Guardado");
-
+    app.post('/api/cartMore/:id', (request,response)=>{
+        var id = request.params.id;
+        
+        var listCopy = cartList.slice();
+        
+        var indexProduct;
+        
+        for(var c=0;c<listCopy.length;c++){
+            if(request.params.id.toString()===listCopy[c]._id.toString()){
+                cartList[c].cantidad+=1;
+                indexProduct=cartList[c].cantidad;
+                
+                
+            }
+        }
+        
+        var price=0;
+        if(listCopy!=null){
+            for(var i=0;i<listCopy.length;i++){
+                price+=listCopy[i].price*listCopy[i].cantidad;
+                
+            }
+        }
+        
+        
+        response.send({
+            cantProduct: indexProduct,
+            totalC: "TOTAL $"+price,
+        });
     });
-    response.redirect('/store');
-});
+    
+    //Ruta al formulario
+    app.get('/pay', function (request, response) {
+        
+        var contexto = {
+            
+        };
+        response.render('pay', contexto);
+    });
+    
+    app.post('/api/cartLess/:id', (request,response)=>{
+        var id = request.params.id;
+        
+        var listCopy = cartList.slice();
+        
+        var indexProduct;
+        
+        for(var c=0;c<listCopy.length;c++){
+            if(request.params.id.toString()===listCopy[c]._id.toString()){
+                
+                if(cartList[c].cantidad>1){
+                    cartList[c].cantidad-=1;
+                }else if(cartList[c].cantidad==1){
+                    cartList.splice(c,1);
+                }
+                indexProduct=cartList[c].cantidad;
+                
+            }
+        }
+        
+        var price=0;
+        if(listCopy!=null){
+            for(var i=0;i<listCopy.length;i++){
+                price+=listCopy[i].price*listCopy[i].cantidad;
+                
+            }
+        }
+        
+        
+        response.send({
+            cantProduct: indexProduct,
+            totalC: "TOTAL $"+price,
+        });
+    });
+
+    app.post('/api/cartDelete/:id', (request,response)=>{
+        var id = request.params.id;
+        
+        var listCopy = cartList.slice();
+        
+        
+        var index=listCopy.length;
+        for(var c=0;c<listCopy.length;c++){
+            if(request.params.id.toString()===listCopy[c]._id.toString()){
+                cartList.splice(c,1);
+            }
+        }
+
+        var price=0;
+        if(listCopy!=null){
+            for(var i=0;i<listCopy.length;i++){
+                price+=listCopy[i].price*listCopy[i].cantidad;
+                
+            }
+        }
+
+        response.send({
+            totalCount: "TOTAL $"+price,
+        });
+        
+        
+        
+    });
+    
+    //Ruta al formulario
+    app.get('/pay', function (request, response) {
+
+        var contexto = {
+
+        };
+        response.render('pay', contexto);
+    });
+
+    //Ruta al checkout
+    app.post('/checkout', function (request, response) {
+
+        var order = {
+            email: request.body.correo,
+            phone: request.body.telefono,
+            firstName: request.body.nombre,
+            lastName: request.body.apellido,
+            address: request.body.direccion,
+            country: request.body.pais,
+            state: request.body.estado,
+            city: request.body.ciudad,
+            zip: request.body.zip,
+            card: request.body.tarjeta,
+            year: request.body.fecha,
+            month: request.body.mes,
+            cvv: request.body.cvv,
+            products:JSON.parse(request.body.products),
+            total: request.body.total
+
+        };
+
+        var collection = db.collection('orders');
+        collection.insertOne(order, function (err) {
+            assert.equal(err, null);
+            console.log("Pedido Guardado");
+
+        });
+        response.redirect('/store');
+    });
 
 
 }

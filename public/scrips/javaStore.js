@@ -4,7 +4,7 @@ function handleLoad() {
     var filter = document.querySelector('.store__filter');
     var btnSort = document.querySelector('.header__sort');
     var sort = document.querySelector('.store__sort');
-
+   
     function handleClick(){
         filter.classList.toggle('store__filter--active');
         console.log('funciona el cambio');

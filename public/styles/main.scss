@@ -27,6 +27,11 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  a{
+    text-decoration: none;
+    outline: none;
+    background: none;
+  }
 }
 
 * {
@@ -161,6 +166,11 @@ body {
 
     & img {
       width: 70%;
+    }
+  }
+  @media (max-width: 500px) {
+    .header__btn{
+      display: none;
     }
   }
   &__responsive {
@@ -742,7 +752,8 @@ body {
 
 //Parte de la tienda
 .store {
-  width: 95%;
+ 
+ &__all{ width: 95%;
   margin-left: 2.5%;
   margin-right: 2.5%;
   height: auto;
@@ -750,6 +761,21 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
+}
+&__bag{
+  width: 40%;
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: #ff302a;
+  border-radius: 20px;
+  padding: 10px;
+  font-family: $tipo-titulos;
+  font-size: 20pt;
+  color: white;
+  text-align: center;
+ 
+}
   &__filter {
     h2 {
       color: white;
@@ -764,19 +790,24 @@ body {
   }
 }
 .product {
-  width: 25%;
   background-color: #f6f6f6;
+  border-radius: 10%;
+
+
+ &__individual{
+  width: 25%;
   display: flex;
   flex-direction: column;
   position: relative;
   padding: 0 20px;
-  border-radius: 23px;
   margin: 2%;
   text-decoration: none;
   text-decoration-color: none;
   text-decoration-style: none;
+  }
 
   &__image {
+    border-radius: 40% 40% 0 0;
     overflow: hidden;
     margin: 0;
 
@@ -958,3 +989,15 @@ body {
     font-size: 20px;
   }
 }
+.product__bag{
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: #ff302a;
+  border-radius: 20px;
+  padding: 10px;
+  font-family: $tipo-titulos;
+  font-size: 20pt;
+  color: white;
+}
+

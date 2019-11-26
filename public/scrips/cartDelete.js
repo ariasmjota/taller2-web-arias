@@ -1,28 +1,32 @@
-//------------------------Carrito de compras-------------------------------   
-function handleLoad() {
-    var btnsAdd = document.querySelectorAll('.product__bag');
-    var cartCount = document.querySelector('.header__bag');
+window.addEventListener('load', function(){
+
+    var btnsAdd = document.querySelectorAll('.buttons__delete');
+    var total = document.querySelector('.product__quantity');
+
 
     btnsAdd.forEach(function (btn) {
         
         btn.addEventListener('click', function(event){
-            
             event.preventDefault();
             var id = btn.getAttribute('data-name');
 
-            var promise = fetch('/api/cart/' + id, { method: 'POST' });
+            var promise = fetch('/api/cartDelete/' + id, { method: 'POST' });
             promise
                 .then(function (response) {
                     console.log(response);
-                    console.log('boton de comprar');
                     return response.json();
                 })
                 .then(function (data) {
                     console.log(data);
-                    cartCount.innerText = data.cartLength;
+                    total.innerHTML=data.totalCount;
                 });
+
+                window.location.reload();
 
         });
 
     });
-}window.addEventListener('load', handleLoad);
+
+  
+
+});

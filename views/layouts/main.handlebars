@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nike by MJAB</title>
@@ -15,7 +15,7 @@
 </head>
 
 <body>
-     <!-- Inicio el header -->
+    <!-- Inicio el header -->
     <header class="header">
         <!-- Elementos del header -->
 
@@ -25,16 +25,19 @@
 
         <nav class="header__list listnav">
             <a href="/#banner" class="listnav__a">NEW RELEASES</a>
-            <a href="/store"class="listnav__a">SHOP</a>
+            <a href="/store" class="listnav__a">SHOP</a>
             <a href="/#presentation" class="listnav__a">KNOW</a>
             <a href="/#characteristic" class="listnav__a">FOR YOU</a>
             <a href="/#gallery" class="listnav__a">GALLERY</a>
         </nav>
-       
+
         <button class="header__btn">
             <img src="/images/tienda.png" alt=""></a>
-            <a href="/shopping" class="header__num"><i data-feather="shopping-bag"></i> <h2 class="header__bag">0</h2> </a>
         </button>
+        <a href="/shopping">
+            <h2 class="header__bag">Cantidad: {{cartSize}}</h2>
+        </a>
+
 
         <!-- Responsive -->
         <button class="header__responsive">
@@ -64,11 +67,12 @@
 
     </footer>
 
-    <script src="/scrips/javaStore.js"></script>
     <script src="/scrips/javaHome.js"></script>
-    <script src="/scrips/javaProduct.js"></script>
     <script src="/scrips/javaCart.js"></script>
-  
+    <script src="/scrips/javaStore.js"></script>
+    <script src="/scrips/addcart.js"></script>
+
+
 </body>
 
 </html>

@@ -1,10 +1,44 @@
-
  <article class="car">
          <h1 class="car__tittle">MY BAG</h2>
 
         <article class="carrito">
 
-                <div class="products__list">                     
+                <div class="products__list">   
+                  {{#each products}}
+
+          <a href="/store/{{this.name}}" class="product">
+            <!-- Detalles del producto -->
+
+            {{!-- Imagen del producto --}}
+            <section class="product__image">
+                <img  src="/images/{{this.images.[0]}}">
+            </section>
+
+            {{!-- Informacion del producto  --}}
+            <section class="product__top">
+
+                <article class="top__right">
+                    <h1 class="product__header"> {{this.name}}</h1>
+                    <h2 class="product__header"> {{this.category}}</h2>
+                    <h1 class="product__header">{{this.price}}</h1>
+                    <h1 class="product__quantity"> {{this.cantidad}}</h1>
+                </article>
+
+            </section>
+
+<div class="product__buttons">
+    <a  class="buttons__less" data-name="{{this._id}}" href="" ><img width="50px" height="50px" src="/images/less.png" alt=""></a>
+        <a  class="buttons__more" data-name="{{this._id}}" href=""><img  width="50px" height="50px"src="/images/plus.png" alt=""></a>
+                <a  class="buttons__delete" data-name="{{this._id}}" href=""><img  width="50px" height="50px"src="/images/delete.png" alt=""></a>
+
+</div>
+
+        </a>
+     
+    </div>
+
+                  {{/each}}
+
                 </div>
 
            
@@ -14,7 +48,7 @@
                   <h2 class="car__tittle">SUMMARY</p>
                     <li><p class="abstract__can">2 PRODUCTS</p></li>
                    
-                    <li><p class="abstract__total">Total</p>
+                    <li><p class="abstract__total">Total $ {{total}}</p>
                     <p class="abstract__num-total"></p></li>
 
                      <button class="abstract__btn" onclick="location.href='pay/';">BUY NOW</button>
@@ -30,3 +64,9 @@
         </article>
 
      </div>
+
+         <script src="/scrips/cartMore.js"></script>
+                  <script src="/scrips/cartLess.js"></script>
+                                    <script src="/scrips/cartDelete.js"></script>
+
+
