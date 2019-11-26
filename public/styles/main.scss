@@ -27,10 +27,11 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  a{
+  a {
     text-decoration: none;
     outline: none;
     background: none;
+    color: none;
   }
 }
 
@@ -169,7 +170,7 @@ body {
     }
   }
   @media (max-width: 500px) {
-    .header__btn{
+    .header__btn {
       display: none;
     }
   }
@@ -752,30 +753,36 @@ body {
 
 //Parte de la tienda
 .store {
- 
- &__all{ width: 95%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: space-between;
-}
-&__bag{
-  width: 40%;
-  margin-top: 5%;
-  margin-left: 30%;
-  margin-right: 30%;
-  background-color: #ff302a;
-  border-radius: 20px;
-  padding: 10px;
-  font-family: $tipo-titulos;
-  font-size: 20pt;
-  color: white;
-  text-align: center;
- 
-}
+  &__all {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+  &__bag {
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: #ddd;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: $tipo-titulos;
+    font-size: 20pt;
+    color: rgb(70, 69, 69);
+    text-align: center;
+    transition: 0.1s;
+
+    &:hover {
+      background-color: #ff302a;
+      width: 42%;
+      color: white;
+    }
+  }
   &__filter {
     h2 {
       color: white;
@@ -793,17 +800,16 @@ body {
   background-color: #f6f6f6;
   border-radius: 10%;
 
-
- &__individual{
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 0 20px;
-  margin: 2%;
-  text-decoration: none;
-  text-decoration-color: none;
-  text-decoration-style: none;
+  &__individual {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 20px;
+    margin: 2%;
+    text-decoration: none;
+    text-decoration-color: none;
+    text-decoration-style: none;
   }
 
   &__image {
@@ -822,20 +828,13 @@ body {
   }
 
   &__header {
-    h1 {
-      font-family: $tipo-titulos;
-      font-size: 13pt;
-      color: $color-red;
-      padding: 2%;
-      margin: 0;
-    }
-
-    h2 {
-      color: rgb(58, 58, 58);
-    }
-    p {
-      color: gray;
-    }
+    color: $color-red;
+    font-size: 15pt;
+    padding: 2%;
+    margin: 0;
+  }
+  &__text {
+    color: $color-blue;
   }
 }
 // parte de cada producto
@@ -860,7 +859,9 @@ body {
   }
 
   &__right {
-    width: 100%;
+    width: 60%;
+    margin-left: 5%;
+    margin-right: 5%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -870,6 +871,7 @@ body {
     text-decoration: none;
     flex-grow: 2;
   }
+
   &__left {
     width: 100%;
     flex-grow: 2;
@@ -900,6 +902,25 @@ body {
       background-repeat: no-repeat;
       transition: all 0.3s ease-in-out;
     }
+  }
+  .top {
+    &__indivi {
+      color: $color-aquamarine;
+      font-size: 30pt;
+      margin: 20pt ;
+      text-align: start;
+    }
+  }
+  .left__info{
+    margin-right: 50pt;
+  }
+
+  .info__indivi{
+    color:#eccbbf;
+    margin: 20pt;
+      font-size: 16pt;
+     
+      text-align: justify;
   }
 }
 
@@ -942,11 +963,11 @@ body {
   background: none;
 }
 .store__filter {
-    display: none;
+  display: none;
 
-    &--active{
-        display: block;
-    }
+  &--active {
+    display: block;
+  }
   h1 {
     color: white;
     font-size: 30px;
@@ -975,11 +996,11 @@ body {
   margin: 5px;
 }
 .store__sort {
-    display: none;
+  display: none;
 
-    &--active{
-        display: block;
-    }
+  &--active {
+    display: block;
+  }
   h1 {
     color: white;
     font-size: 30px;
@@ -989,15 +1010,42 @@ body {
     font-size: 20px;
   }
 }
-.product__bag{
-  width: 40%;
-  margin-left: 30%;
-  margin-right: 30%;
+.product__bag  {
+  border-radius: 30px;
   background-color: #ff302a;
-  border-radius: 20px;
-  padding: 10px;
-  font-family: $tipo-titulos;
-  font-size: 20pt;
-  color: white;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  width: 20%;
+
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 40%;
+  margin-right: 40%;
 }
 
+.product__bag span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.product__bag span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.product__bag:hover span {
+  padding-right: 25px;
+}
+
+.product__bag:hover span:after {
+  opacity: 1;
+  right: 0;
+}

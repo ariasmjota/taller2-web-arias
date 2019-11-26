@@ -37,15 +37,16 @@
 
     <section class="indivi__left">
       <article class="left__top top">
-        <h1 class="top__indivi">{{individual.price}}</h1>
-        <p class="top__indivi">{{individual.colors}}</p>
+        <h1 class="top__indivi">${{individual.price}}</h1>
       </article>
-      <article class="left__info info">
+      <article class="left__info ">
         <p class="info__indivi">{{individual.characteristic}} </p>
-        <a class="info__indivi">Read More...</a>
-        <p class="info__indivi">{{individual.characOne}} </p>
-        <p class="info__indivi">{{individual.characTwo}} </p>
-        <p class="info__indivi">{{individual.characThree}} </p>
+        <ul class="left__list"></ul>
+        <li class="info__indivi">{{individual.characOne}} </li>
+        <li class="info__indivi">{{individual.characTwo}}
+        </li>
+        <li class="info__indivi">{{individual.characThree}} 
+        </li>
       </article>
 
     </section>
@@ -55,10 +56,12 @@
 
 
 </section>
- <a class="product__bag_ind" data-name="{{individual._id}}" href="#">
-      <p>Buy!</p>
-  </a>
 
-  <h2 class="product__num">HOLAAA{{cartSize}}</h2>
+
+<button class="product__bag  data-name="{{individual._id}}"">
+  <span>Buy </span>
+  </button>
+
+<h2 class="product__num">HOLAAA{{cartSize}}</h2>
 
 <script src="/scrips/addIndividual.js"></script>
