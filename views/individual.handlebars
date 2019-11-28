@@ -45,7 +45,7 @@
         <li class="info__indivi">{{individual.characOne}} </li>
         <li class="info__indivi">{{individual.characTwo}}
         </li>
-        <li class="info__indivi">{{individual.characThree}} 
+        <li class="info__indivi">{{individual.characThree}}
         </li>
       </article>
 
@@ -58,10 +58,9 @@
 </section>
 
 
-<button class="product__bag  data-name="{{individual._id}}"">
-  <span>Buy </span>
-  </button>
+<a class="product__bag" data-name="{{individual._id}}" href="#">
+      <p>Buy!</p>
+  </a>
 
-<h2 class="product__num">HOLAAA{{cartSize}}</h2>
 
-<script src="/scrips/addIndividual.js"></script>
+<script src="/scrips/addCartInd.js"></script>
