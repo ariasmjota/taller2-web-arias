@@ -27,9 +27,15 @@
             </section>
 
 <div class="product__buttons">
-    <a  class="buttons__less" data-name="{{this._id}}" href="" ><img width="50px" height="50px" src="/images/less.png" alt=""></a>
-        <a  class="buttons__more" data-name="{{this._id}}" href=""><img  width="50px" height="50px"src="/images/plus.png" alt=""></a>
-                <a  class="buttons__delete" data-name="{{this._id}}" href=""><img  width="50px" height="50px"src="/images/delete.png" alt=""></a>
+<a  class="buttons__less" data-name="{{this._id}}" href="" >
+    <img width="50px" height="50px" src="/images/minus.png" alt="">
+</a>
+<a  class="buttons__more" data-name="{{this._id}}" href="">
+    <img  width="50px" height="50px"src="/images/plus.png" alt="">
+</a>
+<a  class="buttons__delete" data-name="{{this._id}}" href="">
+    <img  width="50px" height="50px"src="/images/remove.png" alt="">
+</a>
 
 </div>
 
@@ -46,7 +52,7 @@
                 <ul class="abstract__list">
 
                   <h2 class="car__tittle">SUMMARY</p>
-                    <li><p class="abstract__can">2 PRODUCTS</p></li>
+                    <li><p class="abstract__can"> PRODUCTS {{cartSize}}</p></li>
                    
                     <li><p class="abstract__total">Total $ {{total}}</p>
                     <p class="abstract__num-total"></p></li>
