@@ -79,34 +79,19 @@
             </div>
 
 
-            <input type="hidden" name="productos" class="forms__productos">
+            <input type="hidden" name="products" class="forms__productos">
             <input type="hidden" name="total" class="forms__total">
 
             <button type="submit" class="forms__btn">BUY NOW</button>
-
 
         </form>
 
 
 
-        <section class="carrito__resumen carrito__resumen--pequeno">
-            <ul class="resumen__lista">
-                <p class="resumen__titulo">SUMMARY</p>
-                <li class="resumen__item resumen__num-prod">
-                    <p class="resumen__cantidad"> PRODUCTS{{cartList.leght}}</p>
-                </li>
-
-                <li class="resumen__item">
-                    <p class="resumen__total">Total</p>
-                    <p class="resumen__num-total">{{cartSize}}</p>
-                </li>
-
-
-            </ul>
-
-
-        </section>
-
+           <h2 class="car__tittle">SUMMARY</h2>
+                   
+            <p class="abstract__can"> PRODUCTS {{cartSize}}</p>
+            <p class="abstract__total">Total $ {{total}}</p>
 
 
     </article>

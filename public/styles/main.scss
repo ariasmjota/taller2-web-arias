@@ -1048,4 +1048,52 @@ body {
 .product__bag:hover span:after {
   opacity: 1;
   right: 0;
+  
+}
+//-------------------Carrito-------------//
+.cart{
+  
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  background-color: #f6f6f6;
+  border-radius: 23px;
+  
+  &__image {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 23px;
+    
+    img {
+      display: block;
+      width: 100%;
+      margin: -30% 0;
+    }
+  }
+  &__content{
+    width:80%;
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+  &__quantity{
+    width: 30%;
+    background-color:white;
+    color:#ff302a;
+    border-radius: 23px;
+    font-size: 30px;
+    text-align: center;
+  }
+  &__buttons{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+
 }
