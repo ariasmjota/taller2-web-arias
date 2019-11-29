@@ -1,28 +1,39 @@
-//1. Importar librerias
-var express = require('express');
-var exphbs = require('express-handlebars');
+//-----------Importar modulos e instancias-----//
+// importar express
+const express = require('express');
+//Intanciar bodyparser despues de instalarlo en git bash
+const bodyParser = require('body-parser');
 
-//1. Crear app de express
-var app = express();
+//Instanciar mongo
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+//llamar las rutas
+const createRoutes = require('./routes.js');
+//linea de handle
+var exphbs  = require('express-handlebars');
 
-//1. Registro de handlebars
+//Instanciar app
+const app=express();
+
+//Establecer la carpeta public como estatica
+app.use(express.static('public'));
+app.use(express.urlencoded({extended:true}));
+
+//lineas de handlebars
 app.engine('handlebars', exphbs());
-//1.Establecer handlebars como el motor de render
 app.set('view engine', 'handlebars');
 
-//1. Establecer la carpeta public como estatica
-app.use(express.static('public'));
-//Para funcionamiento POST
-app.use(express.urlencoded({ extended: true }));
 
-//7. conectar base de datos de mongo
-//Mongo: crear variables (Paso 1)
-var MongoClient = require('mongodb').MongoClient;
-var assert = require('assert');
+
+//-----------Vamos a usar Mongo-----//
+
+
+//Para usar Mongo: crear variables (Paso 1)
 const url = 'mongodb://localhost:27017';
-const dbName = 'tienda';
+const dbName = 'store';
 const client = new MongoClient(url, { useNewUrlParser: true });
-var clientdb = null;
+
+
 //Para usar Mongo: conectar (Paso 2)
 
 MongoClient.connect(`mongodb+srv://nike-ri6ya.mongodb.net/tienda?retryWrites=true&w=majority`,
@@ -36,8 +47,10 @@ MongoClient.connect(`mongodb+srv://nike-ri6ya.mongodb.net/tienda?retryWrites=tru
 
   function (err, client) {
     if (err) throw err;
-    clientdb = client.db('tienda');
-    createRoutes(app, clientdb);
+    const db = client.db(dbName);
+
+    createRoutes(app, db);
+
     //Iniciar servidor
     app.listen(process.env.PORT || 3000);}
 );
