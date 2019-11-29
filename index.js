@@ -30,7 +30,7 @@ app.set('view engine', 'handlebars');
 
 //Para usar Mongo: crear variables (Paso 1)
 const url = 'mongodb://localhost:27017';
-const dbName = 'store';
+const dbName = 'tienda';
 const client = new MongoClient(url, { useNewUrlParser: true });
 
 
