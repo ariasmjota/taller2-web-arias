@@ -25,7 +25,7 @@ const client = new MongoClient(url, { useNewUrlParser: true });
 var clientdb = null;
 //Para usar Mongo: conectar (Paso 2)
 
-MongoClient.connect(`mongodb+srv:/nike-ri6ya.mongodb.net/tienda?retryWrites=true&w=majority`,
+MongoClient.connect(`mongodb+srv://nike-ri6ya.mongodb.net/tienda?retryWrites=true&w=majority`,
   {
     auth: {
       user: 'mariar_13',
