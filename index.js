@@ -1,56 +1,44 @@
-//-----------Importar modulos e instancias-----//
-// importar express
-const express = require('express');
-//Intanciar bodyparser despues de instalarlo en git bash
-const bodyParser = require('body-parser');
+//1. Importar librerias
+var express = require('express');
+var exphbs = require('express-handlebars');
 
-//Instanciar mongo
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-//llamar las rutas
-const createRoutes = require('./routes.js');
-//linea de handle
-var exphbs  = require('express-handlebars');
+//1. Crear app de express
+var app = express();
 
-//Instanciar app
-const app=express();
-
-//Establecer la carpeta public como estatica
-app.use(express.static('public'));
-app.use(express.urlencoded({extended:true}));
-
-//lineas de handlebars
+//1. Registro de handlebars
 app.engine('handlebars', exphbs());
+//1.Establecer handlebars como el motor de render
 app.set('view engine', 'handlebars');
 
+//1. Establecer la carpeta public como estatica
+app.use(express.static('public'));
+//Para funcionamiento POST
+app.use(express.urlencoded({ extended: true }));
 
-
-//-----------Vamos a usar Mongo-----//
-
-
-//Para usar Mongo: crear variables (Paso 1)
+//7. conectar base de datos de mongo
+//Mongo: crear variables (Paso 1)
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
 const url = 'mongodb://localhost:27017';
-const dbName = 'store';
+const dbName = 'tienda';
 const client = new MongoClient(url, { useNewUrlParser: true });
-
-
+var clientdb = null;
 //Para usar Mongo: conectar (Paso 2)
 
-  client.connect(function(err) {
-    // asegurarnos de que no existe un error
-    assert.equal(null, err);
+MongoClient.connect(`mongodb+srv:/nike-ri6ya.mongodb.net/tienda?retryWrites=true&w=majority`,
+  {
+    auth: {
+      user: 'mariar_13',
+      password: '03132000'
 
-    console.log('conexión');
+    }
+  },
 
-    // conectamos el cliente a la base de datos que necesitamos
-    const db = client.db(dbName);
+  function (err, client) {
+    if (err) throw err;
+    clientdb = client.db('tienda');
+    createRoutes(app, clientdb);
+    //Iniciar servidor
+    app.listen(process.env.PORT || 3000);}
+);
 
-    createRoutes(app, db);
-
-
-// inicar servidor en el puerto definido anteriormente
-app.listen(3000, () => {
-    console.log("Servidor iniciado en el puerto 3000");
-});
-
-});
