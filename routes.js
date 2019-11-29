@@ -2,7 +2,7 @@
 // todas las funciones que interactuen con la base de datos van aquí
 const assert = require('assert');
 
-function createRoutes(app, db) {
+function createRoutes(app, clientdb) {
     var products = db.collection('products');
     var cartList = [];
     
